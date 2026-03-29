@@ -35,7 +35,6 @@ cleaned AS (
        CAST(legal_business_name AS STRING) AS legal_business_name,
        CAST(doing_business_as AS STRING) AS dba_name,
        CAST(seating_interest AS STRING) AS seating_type,
-       UPPER(TRIM(CAST(status AS STRING))) AS status,
 
        -- Location - clean zip code, handling several common zip code data problems
        CASE
