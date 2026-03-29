@@ -72,8 +72,7 @@ cleaned AS (
    FROM source
 
    -- Filters
-   WHERE (agency = 'DOT' OR agency_name LIKE '%Transportation%')
-   AND objectid IS NOT NULL
+   WHERE (objectid IS NOT NULL)
    AND time_of_submission IS NOT NULL
    AND CAST(time_of_submission AS DATE) >= DATE_SUB(CURRENT_DATE(), INTERVAL 7 YEAR)
    AND borough IS NOT NULL
