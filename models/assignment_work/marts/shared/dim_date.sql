@@ -9,9 +9,9 @@ WITH all_dates AS (
    UNION DISTINCT
 
    -- Get dates from restaurant applications
-   SELECT DISTINCT CAST(time_of_submission AS DATE) AS full_date
+   SELECT DISTINCT CAST(created_date AS DATE) AS full_date
    FROM {{ ref('stg_nyc_open_restaurant_apps') }}
-   WHERE time_of_submission IS NOT NULL
+   WHERE created_date IS NOT NULL
 ),
 
 date_dimension AS (
