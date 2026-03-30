@@ -2,7 +2,7 @@
 
 WITH all_locations AS (
    -- Get locations from 311 requests
-   SELECT DISTINCT CAST (borough, incident_zip AS zip_code)
+   SELECT DISTINCT borough, incident_zip AS zip_code
       --TODO replace (HINT: look @ dimensional model & staging data!)
    FROM {{ ref('stg_nyc_311_dot') }}
    WHERE borough IS NOT NULL
@@ -10,7 +10,7 @@ WITH all_locations AS (
    UNION DISTINCT
 
    -- Get locations from restaurant applications
-   SELECT DISTINCT CAST (borough, zip AS zip_code)
+   SELECT DISTINCT borough, zip AS zip_code
        -- TODO replace (HINT: look @ dimensional model & staging data!)
    FROM {{ ref('stg_nyc_open_restaurant_apps') }}
    WHERE borough IS NOT NULL
